@@ -1,0 +1,17 @@
+.login-page {
+  background-image: url("login-background.jpg");
+  background-size: cover;         
+  background-position: center;    
+  background-repeat: no-repeat;   
+  min-height: 100vh
+}
+
+.loginpage-logo {
+  filter: invert(1);
+}
+
+.transition-side {
+  transition: transform 0.5s ease-in-out;
+}
+
+
