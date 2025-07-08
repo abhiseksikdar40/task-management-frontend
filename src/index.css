@@ -1,3 +1,7 @@
+:root {
+  --background-color: rgb(37, 36, 36);
+}
+
 .login-page {
   background-image: url("/login-background.jpg");
   background-size: cover;         
@@ -14,4 +18,18 @@
   transition: transform 0.5s ease-in-out;
 }
 
+body {
+  background: var(--background-color);
+}
 
+.sidebar {
+  background: var(--background-color);
+}
+
+.nav-logo {
+  filter: invert(1);
+}
+
+h1 {
+  color: white;
+}
