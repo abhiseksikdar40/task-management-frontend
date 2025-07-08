@@ -39,7 +39,7 @@ export default function LoginPage({ loginMode = false }) {
     try {
       setLoading(true);
       const response = await fetch(
-        "https://task-management-backend-brown.vercel.app/v1/signup/user",
+        "https://task-management-backend-one-rho.vercel.app/v1/signup/user",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -76,7 +76,7 @@ export default function LoginPage({ loginMode = false }) {
     try {
       setLoading(true);
       const response = await fetch(
-        "https://task-management-backend-brown.vercel.app/v1/login/user",
+        "https://task-management-backend-one-rho.vercel.app/v1/login/user",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -107,7 +107,7 @@ export default function LoginPage({ loginMode = false }) {
     navigate(login ? "/signup" : "/login");
   };
 
-  if (redirectToDashboard) return <Navigate to="/dashboard" />;
+  if (redirectToDashboard) return <Navigate to="/auth/dashboard" />;
 
   return (
     <div className="login-page d-flex position-relative overflow-hidden" style={{ minHeight: "100vh" }}>
@@ -170,7 +170,7 @@ export default function LoginPage({ loginMode = false }) {
                 value={addUser.userpassword}
                 onChange={handleChange}
               />
-              <img className="loginpage-logo"
+              <img
                 src={showPassword ? "eye-slash.svg" : "eye.svg"}
                 alt="toggle"
                 onClick={() => setShowPassword(!showPassword)}

@@ -18,10 +18,10 @@ createRoot(document.getElementById('root')).render(
       <Route path="/login" element={<LoginPage loginMode={true} />} />
       <Route path="/signup" element={<LoginPage loginMode={false} />} />
         <Route element={<App/>}>
-          <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
-          <Route path='/project' element={<PrivateRoute><Project/></PrivateRoute>}/>
-          <Route path='/team' element={<PrivateRoute><Team/></PrivateRoute>}/>
-          <Route path='/reports' element={<PrivateRoute><Reports/></PrivateRoute>}/>
+          <Route path='/auth/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
+          <Route path='/auth/project' element={<PrivateRoute><Project/></PrivateRoute>}/>
+          <Route path='/auth/team' element={<PrivateRoute><Team/></PrivateRoute>}/>
+          <Route path='/auth/reports' element={<PrivateRoute><Reports/></PrivateRoute>}/>
         </Route>
     </Routes>
     </BrowserRouter>

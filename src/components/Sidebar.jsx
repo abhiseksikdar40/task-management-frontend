@@ -13,8 +13,8 @@ export default function Sidebar() {
       <ul className="nav flex-column w-100 gap-4">
         <li className="nav-item">
           <Link
-            to="/dashboard"
-            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/dashboard") ? "text-primary fw-bold" : "text-light"}`}
+            to="/auth/dashboard"
+            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/auth/dashboard") ? "text-primary fw-bold" : "text-light"}`}
           >
             <img className="nav-logo" src="/dashboard.svg" alt="Dashboard" style={{ width: '16px' }} />
             Dashboard
@@ -22,8 +22,8 @@ export default function Sidebar() {
         </li>
         <li className="nav-item">
           <Link
-            to="/project"
-            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/project") ? "text-primary fw-bold" : "text-light"}`}
+            to="/auth/project"
+            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/auth/project") ? "text-primary fw-bold" : "text-light"}`}
           >
             <img className="nav-logo" src="/project.svg" alt="Project" style={{ width: '16px' }} />
             Project
@@ -31,8 +31,8 @@ export default function Sidebar() {
         </li>
         <li className="nav-item">
           <Link
-            to="/team"
-            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/team") ? "text-primary fw-bold" : "text-light"}`}
+            to="/auth/team"
+            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/auth/team") ? "text-primary fw-bold" : "text-light"}`}
           >
             <img className="nav-logo" src="/team.svg" alt="Team" style={{ width: '16px' }} />
             Team
@@ -40,8 +40,8 @@ export default function Sidebar() {
         </li>
         <li className="nav-item">
           <Link
-            to="/reports"
-            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/reports") ? "text-primary fw-bold" : "text-light"}`}
+            to="/auth/reports"
+            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/auth/reports") ? "text-primary fw-bold" : "text-light"}`}
           >
             <img className="nav-logo" src="/report.svg" alt="Reports" style={{ width: '16px' }} />
             Reports
