@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 import './index.css'
 import { Outlet } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
@@ -9,7 +10,7 @@ function App() {
     <>
      <div style={{ display: 'flex' }}>
         <Sidebar />
-        <main style={{ marginLeft: '50px', padding: '20px 10px', width: '100%' }}>
+        <main style={{ marginLeft: '10px', padding: '20px 10px', width: '100%' }}>
           <Outlet />
         </main>
         </div>

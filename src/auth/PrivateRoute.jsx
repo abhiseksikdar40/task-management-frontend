@@ -10,7 +10,7 @@ export default function PrivateRoute({ children }) {
       try {
         const response = await fetch("https://task-management-backend-one-rho.vercel.app/auth", {
           method: "GET",
-          headers: { Authorization: token},
+          headers: { Authorization: `Bearer ${token}`},
         });
 
         if (response.ok) {

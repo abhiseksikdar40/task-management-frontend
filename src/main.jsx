@@ -5,6 +5,7 @@ import LoginPage from './auth/LoginPage'
 
 import App from './App'
 import PrivateRoute from './auth/PrivateRoute'
+import { TaskProvider } from './context/TaskContext'
 import Dashboard from './pages/Dashboard'
 import Project from './pages/Project'
 import Team from './pages/Team'
@@ -12,7 +13,8 @@ import Reports from './pages/Reports'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <TaskProvider>
+      <BrowserRouter>
     <Routes>
       <Route path="/" element={<Navigate to="/signup" />} />
       <Route path="/login" element={<LoginPage loginMode={true} />} />
@@ -25,5 +27,6 @@ createRoot(document.getElementById('root')).render(
         </Route>
     </Routes>
     </BrowserRouter>
+    </TaskProvider>
   </StrictMode>,
 )

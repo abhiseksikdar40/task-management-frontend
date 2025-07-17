@@ -33,3 +33,80 @@ body {
 h1 {
   color: white;
 }
+
+
+.dropdown-toggle {
+    background-color: #474a4d;
+    color: #f1f1f1;
+    font-weight: 500;
+    padding: 5px;
+    border: none !important;
+    border-radius: 0%;
+    width: 120px;
+}
+
+.dropdown-toggle::after {
+    margin-left: 0.5rem;
+}
+
+.dropdown-menu {
+  margin-left: 10px !important;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+.badge-todo {
+  background-color: rgb(149, 155, 255) !important;
+  color: rgb(2, 0, 146);
+  font-weight: bold;
+  font-size: medium;
+}
+
+.badge-inprogress {
+background-color: rgb(236, 255, 92) !important;
+  color: rgb(136, 127, 0);
+  font-weight: bold;
+  font-size: medium;
+}
+
+.badge-completed {
+  background-color: rgb(187, 255, 145) !important;
+  color: rgb(56, 147, 0);
+  font-weight: bold;
+  font-size: medium;
+}
+
+.project-card {
+  background: transparent !important;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.page-link {
+  background: transparent !important;
+  color: white;
+}
+
+.page-link:hover {
+  color: rgb(245, 227, 227);
+}
+
+.modal-backdrop {
+  background-color: rgb(17, 13, 13);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1050;
+}
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1050;
+}
+
+.modal-dialog {
+  width: 450px;
+}
