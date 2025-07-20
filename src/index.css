@@ -110,3 +110,7 @@ background-color: rgb(236, 255, 92) !important;
 .modal-dialog {
   width: 450px;
 }
+
+.card {
+  border: 1px solid white;
+}

@@ -22,11 +22,11 @@ export default function Sidebar() {
         </li>
         <li className="nav-item">
           <Link
-            to="/auth/project"
-            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/auth/project") ? "text-primary fw-bold" : "text-light"}`}
+            to="/auth/tasks"
+            className={`nav-link d-flex align-items-center p-0 gap-2 ${isActive("/auth/tasks") ? "text-primary fw-bold" : "text-light"}`}
           >
-            <img className="nav-logo" src="/project.svg" alt="Project" style={{ width: '16px' }} />
-            Project
+            <img className="nav-logo" src="/tasks.svg" alt="Task" style={{ width: '16px' }} />
+            Tasks
           </Link>
         </li>
         <li className="nav-item">

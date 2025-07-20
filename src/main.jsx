@@ -7,9 +7,10 @@ import App from './App'
 import PrivateRoute from './auth/PrivateRoute'
 import { TaskProvider } from './context/TaskContext'
 import Dashboard from './pages/Dashboard'
-import Project from './pages/Project'
+import Tasks from './pages/Tasks'
 import Team from './pages/Team'
 import Reports from './pages/Reports'
+import User from './pages/User'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,8 +22,9 @@ createRoot(document.getElementById('root')).render(
       <Route path="/signup" element={<LoginPage loginMode={false} />} />
         <Route element={<App/>}>
           <Route path='/auth/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
-          <Route path='/auth/project' element={<PrivateRoute><Project/></PrivateRoute>}/>
+          <Route path='/auth/tasks' element={<PrivateRoute><Tasks/></PrivateRoute>}/>
           <Route path='/auth/team' element={<PrivateRoute><Team/></PrivateRoute>}/>
+          <Route path='/auth/teams/:id' element={<PrivateRoute><User/></PrivateRoute>}/>
           <Route path='/auth/reports' element={<PrivateRoute><Reports/></PrivateRoute>}/>
         </Route>
     </Routes>
