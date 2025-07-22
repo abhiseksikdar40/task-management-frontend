@@ -1,30 +1,42 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 export const useFetch = (url) => {
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    const fetchData =  async () => {
+    const fetchData = async () => {
+        if (!url || !url.startsWith("http")) return;
+
         try {
-            setLoading(true)
+            setLoading(true);
             const token = localStorage.getItem("Login-token");
             const response = await fetch(url, {
-                headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`}
-            })
-            if(!response.ok) throw new Error("Failed to fetch data!")
-            const result = await response.json()
-            setData(result || [])
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Fetch failed: ${response.status} - ${errorText}`);
+            }
+
+            const result = await response.json();
+            setData(result || []);
+            setError(null); 
         } catch (error) {
-            setError(error.message)
+            setError(error.message);
+            console.error("Fetch error:", error);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
-    } 
+    };
 
     useEffect(() => {
-        fetchData()
-    }, [url])
+        fetchData();
+    }, [url]);
 
-    return { data, loading, error, refetch: fetchData}
-}
+    return { data, loading, error, refetch: fetchData };
+};

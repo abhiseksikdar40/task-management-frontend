@@ -114,3 +114,24 @@ background-color: rgb(236, 255, 92) !important;
 .card {
   border: 1px solid white;
 }
+
+.back-team {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: large;
+  transition: transform 0.3s ease;
+}
+
+
+.back-team:hover {
+  transform: translateX(-10px);
+}
+
+.back-team img {
+  filter: invert(1);
+  width: 25px;
+}
+
+

@@ -39,7 +39,7 @@ export default function LoginPage({ loginMode = false }) {
     try {
       setLoading(true);
       const response = await fetch(
-        "https://task-management-backend-one-rho.vercel.app/v1/signup/user",
+        "https://task-management-backend-two-coral.vercel.app/v1/signup/user",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -76,7 +76,7 @@ export default function LoginPage({ loginMode = false }) {
     try {
       setLoading(true);
       const response = await fetch(
-        "https://task-management-backend-one-rho.vercel.app/v1/login/user",
+        "https://task-management-backend-two-coral.vercel.app/v1/login/user",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -3,8 +3,8 @@ import { useTaskContext } from "../context/TaskContext";
 import { useFetch } from "../context/useFetch";
 
 export default function AddTask({ onClose, onAddTask }) {
-const { data: projectData } = useFetch('https://task-management-backend-one-rho.vercel.app/v1/projects');
-const { data: teamData } = useFetch('https://task-management-backend-one-rho.vercel.app/v1/teams');
+const { data: projectData } = useFetch('https://task-management-backend-two-coral.vercel.app/v1/projects');
+const { data: teamData } = useFetch('https://task-management-backend-two-coral.vercel.app/v1/teams');
   const { addTask } = useTaskContext();
 
   const [input, setInput] = useState({
@@ -41,7 +41,8 @@ const { data: teamData } = useFetch('https://task-management-backend-one-rho.ver
         project: "",
         team: "",
         taskstatus: "",
-        duedate: ""
+        duedate: "",
+        priority: ""
       });
     } catch (error) {
       console.error("Error adding task:", error);
@@ -80,7 +81,7 @@ const { data: teamData } = useFetch('https://task-management-backend-one-rho.ver
 
                 {/* Select Project */}
                 <label className="mb-1">Select Project</label>
-                <select
+               <select
                   name="project"
                   className="form-select mb-3"
                   onChange={inputHandler}
@@ -89,7 +90,7 @@ const { data: teamData } = useFetch('https://task-management-backend-one-rho.ver
                 >
                   <option value="">-- Choose Project --</option>
                   {projectData?.map((project) => (
-                    <option key={project._id} value={project.projectname}>
+                    <option key={project._id} value={project._id}>
                       {project.projectname}
                     </option>
                   ))}
@@ -106,8 +107,8 @@ const { data: teamData } = useFetch('https://task-management-backend-one-rho.ver
                 >
                   <option value="">-- Choose Team --</option>
                   {teamData?.map((team) => (
-                    <option key={team._id} value={team.teamname}>
-                      {task.teamname}
+                    <option key={team._id} value={team._id}>
+                      {team.teamname}
                     </option>
                   ))}
                 </select>
@@ -115,6 +116,21 @@ const { data: teamData } = useFetch('https://task-management-backend-one-rho.ver
                 <label className="mb-1">Select Due Date</label><br />
                 <input type="date" name="duedate" className="form-control mb-3" onChange={inputHandler}
                   value={input.duedate} />
+
+                  <label className="mb-1">Task Status</label>
+                  <select
+                    name="taskstatus"
+                    className="form-select mb-3"
+                    onChange={inputHandler}
+                    value={input.taskstatus}
+                    required
+                  >
+                    <option value="">-- Select Status --</option>
+                    <option value="To Do">To Do</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Closed">Closed</option>
+                  </select>
 
                   <label className="mb-1">Set Priority</label>
                 <select

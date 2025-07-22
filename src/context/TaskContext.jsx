@@ -1,4 +1,5 @@
-import { useContext, createContext } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const TaskContext = createContext()
 
@@ -10,7 +11,7 @@ export function TaskProvider({ children }) {
     const addProject = async (newProject) => {
         try {
             const token = localStorage.getItem("Login-token");
-            const response = await fetch('https://task-management-backend-one-rho.vercel.app/v1/create/project', {
+            const response = await fetch('https://task-management-backend-two-coral.vercel.app/v1/create/project', {
                 method: "POST",
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`},
                 body: JSON.stringify(newProject)
@@ -28,7 +29,7 @@ export function TaskProvider({ children }) {
     const addTask = async (newTask) => {
         try {
             const token = localStorage.getItem("Login-token");
-            const response = await fetch('https://task-management-backend-one-rho.vercel.app/v1/create/task', {
+            const response = await fetch('https://task-management-backend-two-coral.vercel.app/v1/create/task', {
                 method: "POST",
                 headers: {"Content-Type" : "application/json", Authorization: `Bearer ${token}`},
                 body: JSON.stringify(newTask)
@@ -43,11 +44,12 @@ export function TaskProvider({ children }) {
     }
 
 
+
      // Add Team
      const addTeam = async (newTeam) => {
         try {
             const token = localStorage.getItem("Login-token")
-            const response = await fetch('https://task-management-backend-one-rho.vercel.app/v1/create/team', {
+            const response = await fetch('https://task-management-backend-two-coral.vercel.app/v1/create/team', {
                 method: "POST",
                 headers: {"Content-Type" : "application/json", Authorization: `Bearer ${token}`},
                 body: JSON.stringify(newTeam)
@@ -61,10 +63,12 @@ export function TaskProvider({ children }) {
         }
      }
 
+
+
      const addUser = async (newUser) => {
          try {
             const token = localStorage.getItem("Login-token")
-            const response = await fetch('https://task-management-backend-one-rho.vercel.app/v1/create/user', {
+            const response = await fetch('https://task-management-backend-two-coral.vercel.app/v1/create/user', {
                 method: "POST",
                 headers: {"Content-Type" : "application/json", Authorization: `Bearer ${token}`},
                 body: JSON.stringify(newUser)
@@ -78,12 +82,14 @@ export function TaskProvider({ children }) {
         }
      }
 
+
+
     const values = {
-        addProject,
-        addTask,
-        addTeam,
-        addUser
-    }
+    addProject,
+    addTask,
+    addTeam,
+    addUser,
+}
 
     return <TaskContext.Provider value={values}>{children}</TaskContext.Provider>
 }

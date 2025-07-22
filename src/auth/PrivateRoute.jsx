@@ -8,7 +8,7 @@ export default function PrivateRoute({ children }) {
   useEffect(() => {
     const verifyToken = async () => {
       try {
-        const response = await fetch("https://task-management-backend-one-rho.vercel.app/auth", {
+        const response = await fetch("https://task-management-backend-two-coral.vercel.app/auth", {
           method: "GET",
           headers: { Authorization: `Bearer ${token}`},
         });

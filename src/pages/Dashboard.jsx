@@ -2,7 +2,7 @@ import { useState } from "react";
 import AddProject from "../components/AddProject";
 import { useFetch } from "../context/useFetch";
 export default function Dashboard() {
-   const  { data, loading, error, refetch } = useFetch('https://task-management-backend-one-rho.vercel.app/v1/projects')
+   const  { data, loading, error, refetch } = useFetch('https://task-management-backend-two-coral.vercel.app/v1/projects')
    const [filter, setFilter] = useState("All")
    const [searchQuery, setSearchQuery] = useState("")
    const [showModel, setShowModel] = useState(false) 

@@ -4,7 +4,7 @@ import { useFetch } from "../context/useFetch"
 import { Link } from "react-router-dom"
 
 export default function Team() {
-    const { data, loading, error, refetch} = useFetch('https://task-management-backend-one-rho.vercel.app/v1/teams')
+    const { data, loading, error, refetch} = useFetch('https://task-management-backend-two-coral.vercel.app/v1/teams')
     const [showModel, setShowModel] = useState(false)
 
    return (
