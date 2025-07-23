@@ -165,7 +165,7 @@ export default function Reports() {
 
       {/* Bottom Row: Tasks Closed by Team */}
       <div className="row">
-        <div className="col-12 mb-2">
+        <div className="col-12">
           <div className="card shadow-sm">
             <div className="card-body">
               <h5 className="card-title text-center mb-3">Tasks Closed by Team</h5>
