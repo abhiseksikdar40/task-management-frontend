@@ -11,7 +11,7 @@ function App() {
     <>
      <div style={{ display: 'flex' }}>
         <Sidebar />
-        <main style={{ marginLeft: '10px', padding: '20px 10px', width: '100%' }}>
+        <main style={{ marginLeft: '10px', padding: '9px 10px', width: '100%' }}>
           <Outlet />
         </main>
         </div>
