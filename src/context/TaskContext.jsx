@@ -25,6 +25,26 @@ export function TaskProvider({ children }) {
         }
     }
 
+    const updateProjectStatus = async (projectid, updatedFields) => {
+    try {
+        const token = localStorage.getItem("Login-token");
+        const response = await fetch(`https://task-management-backend-two-coral.vercel.app/v1/projects/update/${projectid}`, {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(updatedFields),
+        });
+
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Failed to update Project status!", error);
+        return { error: error.message };
+    }
+};
+
     // Add Task
     const addTask = async (newTask) => {
         try {
@@ -42,6 +62,26 @@ export function TaskProvider({ children }) {
             return { error: error.message };
         }
     }
+
+    const updateTaskStatus = async (taskId, updatedFields) => {
+    try {
+        const token = localStorage.getItem("Login-token");
+        const response = await fetch(`https://task-management-backend-two-coral.vercel.app/v1/tasks/update/${taskId}`, {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(updatedFields),
+        });
+
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Failed to update task status!", error);
+        return { error: error.message };
+    }
+};
 
 
 
@@ -89,6 +129,8 @@ export function TaskProvider({ children }) {
     addTask,
     addTeam,
     addUser,
+    updateTaskStatus,
+    updateProjectStatus
 }
 
     return <TaskContext.Provider value={values}>{children}</TaskContext.Provider>

@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import { useTaskContext } from "../context/TaskContext";
 
 export default function AddMember({teamId, onClose, onAddMember }) {
-//   const { teamid } = useParams();
   const { addUser } = useTaskContext();
 
  const [input, setInput] = useState({

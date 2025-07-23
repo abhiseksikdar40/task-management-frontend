@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation, Navigate } from "react-router-dom";
+import { useNavigate, useLocation, Navigate, Link } from "react-router-dom";
 
 export default function LoginPage({ loginMode = false }) {
   const [login, setLogin] = useState(loginMode);
@@ -199,7 +199,7 @@ export default function LoginPage({ loginMode = false }) {
             {!login && (
               <p className="fst-italic mt-2" style={{ fontSize: "12px" }}>
                 By continuing, you agree to our{" "}
-                <a className="text-light" href="#">Terms and Conditions</a>.
+               <Link to="/terms-and-conditions" className="text-light">Terms and Conditions</Link>
               </p>
             )}
           </form>

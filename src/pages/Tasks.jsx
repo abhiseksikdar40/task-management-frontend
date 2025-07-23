@@ -1,19 +1,24 @@
 import { useState } from "react";
 import { useFetch } from "../context/useFetch";
 import AddTask from "../components/AddTask";
-import { Link } from "react-router-dom";
+import TaskDetails from "../components/TaskDetails";
+import { useTaskContext } from "../context/TaskContext";
 
 export default function Tasks() {
   const { data: projectData, refetch } = useFetch('https://task-management-backend-two-coral.vercel.app/v1/projects');
-  const { data: taskData} = useFetch('https://task-management-backend-two-coral.vercel.app/v1/tasks');
+  const { data: taskData, refetch: refetchTask} = useFetch('https://task-management-backend-two-coral.vercel.app/v1/tasks');
+  const { updateTaskStatus } = useTaskContext()
   const [showDetails, setShowDetails] = useState("All");
   const [showModel, setShowModel] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
+
 
   const handleOption = (e) => {
     setShowDetails(e.target.value);
   };
 
   const selectedProject = projectData.find(project => project.projectname === showDetails);
+  const filteredTasks = taskData?.filter(task => task.project._id === selectedProject?._id);
 
   return (
     <div>
@@ -30,7 +35,16 @@ export default function Tasks() {
         <>
           <div className="mt-5 d-flex justify-content-between">
             <div>
-              <h1 className="text-light">{selectedProject.projectname}</h1>
+              <div className="d-flex align-items-center">
+                <h1 className="text-light me-4">{selectedProject.projectname}</h1>
+                <span className={`pe-3 mb-2 mt-2 badge ${
+                            selectedProject.projectstatus === "To Do"
+                                ? "badge-todo"
+                                : selectedProject.projectstatus === "In Progress"
+                                ? "badge-inprogress"
+                                : "badge-completed"
+                            }`}>{selectedProject.projectstatus}</span>
+              </div>
               <p className="text-light">{selectedProject.description}</p>
             </div>
             <div>
@@ -38,7 +52,7 @@ export default function Tasks() {
             </div>
             {showModel && (
               <AddTask
-                onAddTask={refetch}
+                onAddTask={refetchTask}
                 onClose={() => setShowModel(false)}
                 projectId={selectedProject._id}
               />
@@ -53,12 +67,11 @@ export default function Tasks() {
                 <th className="bg-transparent text-light text-center">PRIORITY</th>
                 <th className="bg-transparent text-light text-center">DUE DATE</th>
                 <th className="bg-transparent text-light text-center">STATUS</th>
-                <th className="bg-transparent text-light text-center" colSpan={2}>TASK INFO</th>
               </tr>
             </thead>
             <tbody>
-              {taskData?.length > 0 ? (
-                taskData.map(task => (
+              {filteredTasks?.length > 0 ? (
+                filteredTasks.map(task => (
                   <tr key={task._id}>
                     <td className="bg-transparent text-light text-center align-middle">{task.taskname}</td>
                     <td className="bg-transparent text-light text-center align-middle">{task.team.teamname}</td>
@@ -87,17 +100,27 @@ export default function Tasks() {
                         </td>
                     <td className="bg-transparent text-light text-center align-middle">{new Date(task.duedate).toLocaleDateString('en-IN', {day: "2-digit", month: "short", year: "numeric"})}</td>
                     <td className="bg-transparent text-light text-center align-middle">
-                        <span className={`px-3 py-2 mb-2 mt-2 badge ${
+                        <span role="button" onClick={() => setSelectedTask(task)} className={`px-3 py-2 mb-2 mt-2 badge ${
                         task.taskstatus === "To Do"
                             ? "bg-primary"
                             : task.taskstatus === "In Progress"
                             ? "bg-warning text-dark"
-                            : "bg-success"
+                            : task.taskstatus === "Completed"
+                            ? "bg-success"
+                            : "bg-danger"
                         }`}>
                         {task.taskstatus}
                         </span>
+                        {selectedTask && (
+                            <TaskDetails
+                              task={selectedTask}
+                              onClose={() => setSelectedTask(null)}
+                              onStatusChange={updateTaskStatus}
+                              refetch={refetchTask}
+                            />
+                          )}
                     </td>
-                    <td className="bg-transparent text-light text-center align-middle" colSpan={2}><Link><img src="/box-arrow-right.svg" className="mt-1" style={{width: "25px", filter: "invert(1)"}} alt="Details" /></Link></td>
+                  
                   </tr>
                 ))
               ) : (

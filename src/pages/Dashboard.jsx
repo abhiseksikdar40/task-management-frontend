@@ -1,12 +1,16 @@
 import { useState } from "react";
 import AddProject from "../components/AddProject";
 import { useFetch } from "../context/useFetch";
+import ProjectStatus from "../components/ProjectStatus";
+import { useTaskContext } from "../context/TaskContext";
 export default function Dashboard() {
    const  { data, loading, error, refetch } = useFetch('https://task-management-backend-two-coral.vercel.app/v1/projects')
+   const { updateProjectStatus } = useTaskContext()
    const [filter, setFilter] = useState("All")
    const [searchQuery, setSearchQuery] = useState("")
    const [showModel, setShowModel] = useState(false) 
    const [currentPage, setCurrentPage] = useState(1)
+  const [selectedProject, setSelectedProject] = useState(null);
 
 
    const handleFilter = (status) => {
@@ -90,7 +94,7 @@ export default function Dashboard() {
                     {!loading && error && !data?.length && (<p className="text-danger fw-bold fs-1 text-center">Failed to fetch projects!</p>)}
 
                     {!loading && data?.length > 0 && displayedProjects?.map((project) => (
-                    <div className="col-md-3 mb-4" key={project._id}>
+                    <div role="button" onClick={() => setSelectedProject(project)} className="col-md-3 mb-4" key={project._id}>
                         <div className="project-card card h-100">
                         <div className="card-body">
                             <span className={`pe-3 mb-2 badge ${
@@ -110,9 +114,17 @@ export default function Dashboard() {
                     ))}
 
                 {filteredProjects?.length > 0 && (<p className="text-light fw-bold fs-5 mt-3 position-fixed bottom-0">{`Page ${currentPage} — Showing ${displayedProjects.length} of ${filteredProjects.length} projects.`}</p>)}
-</div>
+                </div>
 
             {showModel && <AddProject onAddProject={refetch} onClose={() => setShowModel(false)}/>}
-        </div>
+                {selectedProject && (
+                            <ProjectStatus
+                            project={selectedProject}
+                            onClose={() => setSelectedProject(null)}
+                            onStatusChange={updateProjectStatus}
+                            refetch={refetch}
+                            />
+                          )}
+                        </div>
     );
 }
