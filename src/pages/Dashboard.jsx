@@ -51,7 +51,7 @@ export default function Dashboard() {
             </div>
 
             {/* Top Bar: Projects + Filter on Left, Add Project + Pagination on Right */}
-            <div className="d-flex justify-content-between align-items-center mb-5 flex-wrap">
+            <div className="d-flex justify-content-between align-items-center mb-3 flex-wrap">
                 {/* Left side: Heading + Filter */}
                 <div className="d-flex align-items-center flex-wrap">
                     <h2 className="fw-bold text-white me-3 mb-2 mb-md-0">Projects</h2>

@@ -122,7 +122,7 @@ export default function Reports() {
       {/* Top Row: Work Done & Work Pending */}
       <div className="row">
         {/* Total Work Done */}
-        <div className="col-md-6 mb-4">
+        <div className="col-md-6 mb-2">
           <div className="card h-100 shadow-sm">
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-center mb-3">
@@ -148,7 +148,7 @@ export default function Reports() {
         </div>
 
         {/* Total Work Pending */}
-        <div className="col-md-6 mb-4">
+        <div className="col-md-6 mb-2">
           <div className="card h-100 shadow-sm">
             <div className="card-body">
               <h5 className="card-title text-center mb-3">Total Work Pending</h5>
@@ -165,11 +165,11 @@ export default function Reports() {
 
       {/* Bottom Row: Tasks Closed by Team */}
       <div className="row">
-        <div className="col-12 mb-4">
+        <div className="col-12 mb-2">
           <div className="card shadow-sm">
             <div className="card-body">
               <h5 className="card-title text-center mb-3">Tasks Closed by Team</h5>
-              <div style={{ height: "250px" }}>
+              <div style={{ height: "220px" }}>
                 <Bar
                   data={closedByTeamData}
                   options={{ responsive: true, maintainAspectRatio: false }}
