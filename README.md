@@ -1,23 +1,24 @@
 # 📋 Worflo
 
-Worflo is a task management platform that allows users to create projects, assign tasks, manage teams, and track task progress in real-time. It provides a streamlined dashboard for organizing and visualizing work.
+**Worflo** is a task management platform that enables users to create projects, assign tasks, manage teams, and track progress in real time. It offers a streamlined dashboard for organizing and visualizing work efficiently.
 
 ---
 
 ## 🚀 Live Demo
 
-👉 [Click to Try the App](https://worflo-frontend.vercel.app)
+👉 [Click to Try the App](https://task-management-frontend-taupe-eight.vercel.app/)
 
 ---
 
 ## ⚙️ Quick Start
 
-```bash
-git clone https://github.com/yourusername/worflo-frontend.git
-cd worflo-frontend
+Clone the repository and get started locally:
+```
+git clone https://github.com/abhiseksikdar40/task-management-frontend.git
+cd task-management-frontend
 npm install
 npm run dev
-```
+````
 
 ---
 
@@ -30,14 +31,15 @@ npm run dev
 * Express
 * MongoDB
 * Chart.js
+* JWT (JSON Web Tokens)
 
 ---
 
 ## 🎥 Demo Video
 
-Watch a complete walkthrough covering the core features of this platform.
+Watch a complete walkthrough covering the core features of the platform:
 
-[Discover What’s Inside](https://drive.google.com/file/d/your-demo-link/view)
+🎬 [Discover What’s Inside](https://drive.google.com/file/d/your-demo-link/view)
 
 ---
 
@@ -45,34 +47,47 @@ Watch a complete walkthrough covering the core features of this platform.
 
 ### 📊 Dashboard
 
-* Displays project/task metrics
-* Shows task status breakdown
-* Charts for team productivity
-
-### 📁 Projects
-
-* Create new projects
 * View all projects
-* Assign tasks under projects
+* Filter project status using a dropdown
+* Add new projects via button
 
 ### ✅ Tasks
 
-* Assign tasks to teams
-* Set priority and due dates
-* Track status (To Do, In Progress, Completed, Closed)
-* Edit or update tasks
+* Select a project to view tasks
+* Create tasks for specific projects
+* Click task status to update or change it
 
 ### 👥 Teams
 
+* View task list for a selected project
 * Create and manage teams
-* Assign teams to tasks
-* View team-wise tasks
+* Click on a team to see detailed information
 
 ### 👤 Users
 
+* Display all users
 * Add users to teams
-* Assign users under tasks via team linkage
-* User info management
+* Assign users to tasks via team linkage
+
+---
+
+### 📈 Reports
+
+Gain insights into task performance and team productivity:
+
+Number of tasks closed in:
+
+⏱️ Last 24 hours
+
+📅 Last day
+
+📆 Last week
+
+📅 Last month
+
+🔄 Total pending tasks
+
+✅ Total tasks closed by team
 
 ---
 
@@ -80,13 +95,14 @@ Watch a complete walkthrough covering the core features of this platform.
 
 ### 🔹 Projects
 
-#### **Create Project**
+**Create Project**
 
 ```http
-POST /v1/projects
+POST /v1/create/projects
 ```
 
-**Body:**
+**Request Body**
+
 ```json
 {
   "projectname": "Marketing Site",
@@ -99,13 +115,14 @@ POST /v1/projects
 
 ### 🔹 Tasks
 
-#### **Create Task**
+**Create Task**
 
 ```http
-POST /v1/tasks
+POST /v1/create/tasks
 ```
 
-**Body:**
+**Request Body**
+
 ```json
 {
   "taskname": "Design Wireframes",
@@ -121,13 +138,14 @@ POST /v1/tasks
 
 ### 🔹 Teams
 
-#### **Create Team**
+**Create Team**
 
 ```http
-POST /v1/teams
+POST /v1/create/teams
 ```
 
-**Body:**
+**Request Body**
+
 ```json
 {
   "teamname": "Design Team"
@@ -138,13 +156,14 @@ POST /v1/teams
 
 ### 🔹 Users
 
-#### **Create User**
+**Create User**
 
 ```http
-POST /v1/users
+POST /v1/create/users
 ```
 
-**Body:**
+**Request Body**
+
 ```json
 {
   "username": "John Doe",
@@ -157,13 +176,14 @@ POST /v1/users
 
 ### 🔹 Signup
 
-#### **Register User**
+**Register User**
 
 ```http
-POST /v1/signup
+POST /v1/signup/user
 ```
 
-**Body:**
+**Request Body**
+
 ```json
 {
   "fullname": "Jane Doe",
@@ -176,7 +196,8 @@ POST /v1/signup
 
 ## 📬 Contact
 
-For bugs, feature requests, or collaboration:
+For bug reports, feature suggestions, or collaboration inquiries:
 
-📧 yourname@example.com  
-🔗 [LinkedIn](https://linkedin.com/in/your-profile)
+📧 Email: abhiseksikdar40@gmail.com
+🔗 LinkedIn: [Abhisek Sikdar](https://www.linkedin.com/in/abhisek-sikdar)
+
