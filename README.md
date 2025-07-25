@@ -37,9 +37,9 @@ npm run dev
 
 ## 🎥 Demo Video
 
-Watch a complete walkthrough covering the core features of the platform
+Watch a complete (4:57 minute) walkthrough covering the core features of the platform
 
-🎬 [Discover What’s Inside](https://drive.google.com/file/d/your-demo-link/view)
+🎬 [Discover What’s Inside](https://drive.google.com/file/d/1joEO0swWqmCMZpGpq3kw9Q_Db2z-hl0M/view)
 
 ---
 
